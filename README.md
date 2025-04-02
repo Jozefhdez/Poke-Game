@@ -4,8 +4,10 @@ This is a simple GameBoy-style UI built using **React** and **CSS**, powered by 
 
 ## 🚀 Installation & Setup
 
-```sh
+\`\`\`sh
 git clone https://github.com/yourusername/gameboy-ui.git
 cd gameboy-ui
 npm install
 npm run dev
+http://localhost:5173/
+\`\`\`
