@@ -1,5 +1,8 @@
 body {
   background-color: #CFCCCE;
+  display: grid;
+  place-items: center;
+  height: 100vh;
 }
 
 .shadow {
