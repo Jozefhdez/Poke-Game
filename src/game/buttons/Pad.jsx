@@ -1,27 +1,27 @@
 import React from 'react'
 
-function Pad() {
+function Pad( {handlePress} ) {
   return (
-        <div class = "container-dpad">
-        <div class = "button-dpad-empty"></div>
+        <div className = "container-dpad">
+        <div className = "button-dpad-empty"></div>
         <div>
-            <button class = "button-dpad"></button>
+            <button className = "button-dpad" onClick={() => handlePress("up")}></button>
         </div>
-        <div class = "button-dpad-empty"></div>
+        <div className = "button-dpad-empty"></div>
         <div>
-            <button class = "button-dpad"></button>
-        </div>
-        <div>
-            <button class = "button-dpad"></button>
+            <button className = "button-dpad" onClick={() => handlePress("left")}></button>
         </div>
         <div>
-            <button class = "button-dpad"></button>
+            <button className = "button-dpad"></button>
         </div>
-        <div class = "button-dpad-empty"></div>
         <div>
-            <button class = "button-dpad"></button>
+            <button className = "button-dpad" onClick={() => handlePress("right")}></button>
         </div>
-        <div class = "button-dpad-empty"></div>
+        <div className = "button-dpad-empty"></div>
+        <div>
+            <button className = "button-dpad" onClick={() => handlePress("down")}></button>
+        </div>
+        <div className = "button-dpad-empty"></div>
         </div>
   );
 }

@@ -83,16 +83,24 @@ body {
 }
 
 .container-display {
-  display: flex;
-  padding-top: 10px;
-  align-items: center; 
-  flex-direction: column;
-  width: 60%;
-  height: 180px;
-  background-color: #9D9F58;
+  width: 90%;
+  height: 200px;
+  background-color: #9ca04c;
   box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: scroll
 }
+
+.container-display::-webkit-scrollbar {
+  display: none;
+}
+
+.container-display {
+  scrollbar-width: none;
+}
+
 
 .container-name {
   width: 85%;
@@ -167,8 +175,9 @@ body {
 }
 
 .text-ss {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family:  'Gill Sans';
   font-size:medium;
+  font-weight: bold;
   color: #222052;
 }
 
@@ -194,4 +203,10 @@ body {
 .container-name {
   font-family:  'Gill Sans';
   font-weight: bold;
+}
+
+.pokemon-name{
+  font-family: "Pokemon Solid";
+  font-size: 10px;
+  text-align: center;
 }
