@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [pokemones, setPokemons] = useState([]);
+  const [hoverPokemon, setHoverPokemon] = useState(0);
 
   const Base_URL = "https://pokeapi.co/api/v2/";
 
@@ -30,8 +31,32 @@ function App() {
   }, []);
 
   const handlePress = (dir) => {
-    console.log(dir)
-  }
+    console.log(dir);
+    let newHover = hoverPokemon;
+  
+    if (dir === 'right') {
+      newHover += 1;
+    }
+    if (dir === 'left') {
+      newHover -= 1;
+    }
+    if (dir === 'up') {
+      newHover -= 3;
+    }
+    if (dir === 'down') {
+      newHover += 3;
+    }
+  
+    if (newHover >= 1) {
+      setHoverPokemon(newHover);
+    }
+  };
+
+  const handleSelectPokemon = () => {
+    console.log('Select pokemon', hoverPokemon);
+    const pokemonSelected = pokemones.filter((pokemon) => pokemon.id === hoverPokemon);
+    console.log(pokemonSelected);
+  };
 
   return (
     <>
@@ -44,7 +69,7 @@ function App() {
           <div className="container-gameboy">
             {/* Container screen */}
             <div className="container-screen-center">
-              <Screen pokemones={pokemones}/>
+              <Screen pokemones={pokemones} hoverPokemon={hoverPokemon}/>
               {/* Container Nintendo */}
               <div className="container-name">Nintendo GAMEBOY</div>
             </div>
@@ -54,7 +79,7 @@ function App() {
                 {/* Directions pad */}
                 <Pad handlePress={handlePress}/>
                 {/*Select start*/}
-                <StartSelect />
+                <StartSelect handleSelectPokemon={handleSelectPokemon}/>
                 {/* A B */}
                 <Actions />
               </div>

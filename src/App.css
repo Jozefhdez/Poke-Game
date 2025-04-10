@@ -210,3 +210,9 @@ body {
   font-size: 10px;
   text-align: center;
 }
+
+.hover-enabled {
+  background-color: #777a3a;
+  transition: all 0.2s ease-in-out;
+  border-radius: 8px;
+}
