@@ -5,8 +5,8 @@ This is a simple GameBoy-style UI built using **React** and **CSS**, powered by 
 ## 🚀 Installation & Setup
 
 ```sh
-git clone https://github.com/yourusername/gameboy-ui.git
-cd gameboy-ui
+git clone https://github.com/Jozefhdez/Poke-Game
+cd Poke-Game
 npm install
 npm run dev
 ```
