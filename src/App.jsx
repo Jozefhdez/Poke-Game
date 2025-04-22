@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 function App() {
   const [pokemones, setPokemons] = useState([]);
   const [hoverPokemon, setHoverPokemon] = useState(0);
+  const [selectedPokemones, setSelectedPokemones] = useState([]);
 
   const Base_URL = "https://pokeapi.co/api/v2/";
 
@@ -55,8 +56,20 @@ function App() {
   const handleSelectPokemon = () => {
     console.log('Select pokemon', hoverPokemon);
     const pokemonSelected = pokemones.filter((pokemon) => pokemon.id === hoverPokemon);
-    console.log(pokemonSelected);
+
+    const selections = [pokemonSelected, computerSelection()];
+    setSelectedPokemones(selections)
+    console.log(selections)
   };
+
+  const computerSelection = () => {
+    const randomId = Math.floor(Math.random() * pokemones.length);
+    const selectElement = pokemones.filter((pokemon) => pokemon.id === randomId);
+
+    return selectElement;
+  };
+
+  
 
   return (
     <>
@@ -69,7 +82,7 @@ function App() {
           <div className="container-gameboy">
             {/* Container screen */}
             <div className="container-screen-center">
-              <Screen pokemones={pokemones} hoverPokemon={hoverPokemon}/>
+              <Screen pokemones={pokemones} hoverPokemon={hoverPokemon} selectedPokemones={selectedPokemones}/>
               {/* Container Nintendo */}
               <div className="container-name">Nintendo GAMEBOY</div>
             </div>
