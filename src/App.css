@@ -225,49 +225,36 @@ body {
   border-radius: 8px;
 }
 
-
-.health-bar-enemie {
-  background-color: red;
+.health-bar {
   width: 100px;
   height: 10px;
+  border-radius: 10px;
+  border-color: #08070D;
+  border-style: solid;
 }
 
-.health-bar-user {
-  background-color: red;
-  width: 100px;
-  height: 10px;
+.winner-message {
+  font-family: "Pokemon Solid";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #777a3a;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 70%;
+  text-align: center;
+  
 }
 
-.health-bar-user {
-  width: 100px;
-  height: 10px;
-  background-color: #444; /* color del fondo vacío */
-  border: 2px solid #000;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.health-bar-fill-user {
-  height: 10px;
-  width: 100px; /* porcentaje de vida actual */
-  background: linear-gradient(90deg, #00ff00, #66ff66); /* verde saludable */
-  transition: width 0.3s ease-in-out;
-}
-
-.health-bar-enemie {
-  width: 100px;
-  height: 10px;
-  background-color: #444; /* color del fondo vacío */
-  border: 2px solid #000;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.health-bar-fill-enemie {
-  height: 10px;
-  width: 100px; /* porcentaje de vida actual */
-  background: linear-gradient(90deg, #00ff00, #66ff66); /* verde saludable */
-  transition: width 0.3s ease-in-out;
+.button-reset {
+  background-color: #1d4f16;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }

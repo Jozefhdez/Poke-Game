@@ -69,7 +69,44 @@ function App() {
     return selectElement;
   };
 
+  const [health, setHealth] = useState([100, 100]);
+  const [turn, setTurn] = useState(0);
+  const [moves, setMoves] = useState([[], []]);
+
+  useEffect(() => {
+    const fetchMoves = async () => {
+      if (selectedPokemones.length === 2) {
+        const moves1 = selectedPokemones[0][0].moves.slice(0, 4);
+        const moves2 = selectedPokemones[1][0].moves.slice(0, 4);
+        setMoves([moves1, moves2]);
+      }
+    };
+    fetchMoves();
+  }, [selectedPokemones]);
+
+  const handleAttack = () => {
+    if (selectedPokemones.length === 2) {
+      const attacker = turn;
+      const defender = turn === 0 ? 1 : 0;
+
+      const randomMoveIndex = Math.floor(Math.random() * moves[attacker].length);
+      const randomMove = moves[attacker][randomMoveIndex];
+      const damage = Math.floor(Math.random() * 20) + 10;
+
+      const newHealth = [...health];
+      newHealth[defender] -= damage;
+      if (newHealth[defender] < 0) newHealth[defender] = 0;
+      setHealth(newHealth);
+
+      setTurn(defender);
+    }
+  };
   
+  const resetGame = () => {
+    setSelectedPokemones([]);
+    setHealth([100, 100]);
+    setTurn(0);
+  };
 
   return (
     <>
@@ -82,7 +119,7 @@ function App() {
           <div className="container-gameboy">
             {/* Container screen */}
             <div className="container-screen-center">
-              <Screen pokemones={pokemones} hoverPokemon={hoverPokemon} selectedPokemones={selectedPokemones}/>
+              <Screen pokemones={pokemones} hoverPokemon={hoverPokemon} selectedPokemones={selectedPokemones} health={health} resetGame={resetGame}/>
               {/* Container Nintendo */}
               <div className="container-name">Nintendo GAMEBOY</div>
             </div>
@@ -94,7 +131,7 @@ function App() {
                 {/*Select start*/}
                 <StartSelect handleSelectPokemon={handleSelectPokemon}/>
                 {/* A B */}
-                <Actions />
+                <Actions handleAttack={handleAttack}/>
               </div>
             </div>
           </div>
