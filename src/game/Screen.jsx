@@ -18,7 +18,7 @@ const Screen = ({ pokemones, hoverPokemon, selectedPokemones, health, resetGame 
         {selectedPokemones.length === 2 ? (
           health[0] === 0 || health[1] === 0 ? (
             <div className="winner-message">
-              <p>{health[0] === 0 ? "Jugador 2 ha ganado!" : "Jugador 1 ha ganado!"}</p>
+              <p>  {health[0] === 0 ? `${selectedPokemones[1][0].name} ha ganado!`: `${selectedPokemones[0][0].name} ha ganado!`}</p>
               <button onClick={resetGame} className="button-reset">Reiniciar</button>
             </div>
           ) : (
@@ -31,6 +31,7 @@ const Screen = ({ pokemones, hoverPokemon, selectedPokemones, health, resetGame 
                         width: `${health[1]}%`,
                         backgroundColor: getHealthColor(health[1]),
                         height: "100%",
+                        borderRadius: "10px",
                       }}
                     ></div>
                   </div>
@@ -48,6 +49,7 @@ const Screen = ({ pokemones, hoverPokemon, selectedPokemones, health, resetGame 
                         width: `${health[0]}%`,
                         backgroundColor: getHealthColor(health[0]),
                         height: "100%",
+                        borderRadius: "10px",
                       }}
                     ></div>
                   </div>
