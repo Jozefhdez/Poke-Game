@@ -1,4 +1,4 @@
-# GameBoy UI with Vite & React
+# GameBoy Pokemon Game with Vite & React
 
 This is a simple GameBoy-style UI built using **React** and **CSS**, powered by **Vite** for fast development.
 
